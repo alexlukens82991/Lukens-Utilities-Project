@@ -8,8 +8,10 @@ namespace LukensGenericUI
     public class InventoryManager : MonoBehaviour
     {
         public InventoryManager ConnectedInventory;
+        public bool IsOpen;
         public List<Slot> Slots;
         [SerializeField] private Transform m_SlotsParent;
+        [SerializeField] private CanvasGroup m_InventoryCG;
 
         private void Awake()
         {
@@ -54,7 +56,15 @@ namespace LukensGenericUI
 
         public void CloseInventory()
         {
+            IsOpen = false;
             ConnectedInventory = null;
+            LukensUtils.LukensUtilities.ToggleCanvasGroup(m_InventoryCG, false);
+        }
+
+        public void OpenInventory()
+        {
+            IsOpen = true;
+            LukensUtils.LukensUtilities.ToggleCanvasGroup(m_InventoryCG, true);
         }
 
         public bool HasEmptySlot 
@@ -132,7 +142,7 @@ namespace LukensGenericUI
                     }
                     else
                     {
-                        if (itemToAdd.MaxStack / itemToAdd.Amount < GetNumberOfEmptySlots())
+                        if (itemToAdd.MaxStack / itemToAdd.Amount <= GetNumberOfEmptySlots())
                         {
                             InventoryItem leftoverItem = itemToAdd.Clone();
                             leftoverItem.Amount = itemToAdd.Amount - itemToAdd.MaxStack;

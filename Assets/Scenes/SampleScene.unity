@@ -597,10 +597,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GenericInventory (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 2565055286931699693, guid: 52b28cec80117c949932f97f2863d3fe, type: 3}
-      propertyPath: ConnectedInventory
-      value: 
-      objectReference: {fileID: 169941472}
     - target: {fileID: 5560665474386219546, guid: 52b28cec80117c949932f97f2863d3fe, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -887,6 +883,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5560665476308725901, guid: 52b28cec80117c949932f97f2863d3fe, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8074964719106624625, guid: 52b28cec80117c949932f97f2863d3fe, type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8074964719106624625, guid: 52b28cec80117c949932f97f2863d3fe, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8074964719106624625, guid: 52b28cec80117c949932f97f2863d3fe, type: 3}
+      propertyPath: m_BlocksRaycasts
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1246,10 +1254,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GenericInventory
       objectReference: {fileID: 0}
-    - target: {fileID: 2565055286931699693, guid: 52b28cec80117c949932f97f2863d3fe, type: 3}
-      propertyPath: ConnectedInventory
-      value: 
-      objectReference: {fileID: 1973258198}
     - target: {fileID: 5560665474386219546, guid: 52b28cec80117c949932f97f2863d3fe, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1536,6 +1540,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5560665476308725901, guid: 52b28cec80117c949932f97f2863d3fe, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8074964719106624625, guid: 52b28cec80117c949932f97f2863d3fe, type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8074964719106624625, guid: 52b28cec80117c949932f97f2863d3fe, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8074964719106624625, guid: 52b28cec80117c949932f97f2863d3fe, type: 3}
+      propertyPath: m_BlocksRaycasts
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1617,3 +1633,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c7dafcca9c7b26468be8e8bbb66eee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_CurrentOpenInventory: {fileID: 0}
+  m_PlayerInventory: {fileID: 169941472}
+  m_TestingInventory: {fileID: 1973258198}
