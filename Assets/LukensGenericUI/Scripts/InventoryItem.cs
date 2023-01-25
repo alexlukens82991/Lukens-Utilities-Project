@@ -34,4 +34,12 @@ public class InventoryItem
 
         return newItem;
     }
+
+    public void ClearItem()
+    {
+        ID = "";
+        Amount = 0;
+        MaxStack = 1;
+        Sprite = null;
+    }
 }

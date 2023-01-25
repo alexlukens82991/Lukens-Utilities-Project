@@ -398,7 +398,9 @@ MonoBehaviour:
     MaxStack: 0
     Sprite: {fileID: 0}
     Slot: {fileID: 0}
+  ControllingManager: {fileID: 0}
   m_Primed: 0
+  m_DefaultEmptySprite: {fileID: 21300000, guid: 0525793900d728a42936791a8a6de63b, type: 3}
   m_AmountPanel: {fileID: 2973328776387947964}
   m_AmountTxt: {fileID: 4288451511769829960}
   m_DisplaySprite: {fileID: 6125950629550260375}

@@ -7,6 +7,7 @@ namespace LukensGenericUI
 {
     public class InventoryManager : MonoBehaviour
     {
+        public InventoryManager ConnectedInventory;
         public List<Slot> Slots;
         [SerializeField] private Transform m_SlotsParent;
 
@@ -43,9 +44,19 @@ namespace LukensGenericUI
             Slots = new();
             foreach (Transform child in m_SlotsParent)
             {
-                Slots.Add(child.GetComponent<Slot>());
+                Slot foundSlot = child.GetComponent<Slot>();
+                foundSlot.ControllingManager = this;
+
+                Slots.Add(foundSlot);
             }
+
         }
+
+        public void CloseInventory()
+        {
+            ConnectedInventory = null;
+        }
+
         public bool HasEmptySlot 
         { 
             get
@@ -200,6 +211,16 @@ namespace LukensGenericUI
             {
                 Slots[i].transform.SetSiblingIndex(i);
             }
+        }
+
+        public void TransferItemToConnectedInventory(Slot slot)
+        {
+            if (ConnectedInventory.AddItem(slot.CurrentItem))
+            {
+                slot.ClearItem();
+            }
+
+            ReorderSlots();
         }
     }
 }

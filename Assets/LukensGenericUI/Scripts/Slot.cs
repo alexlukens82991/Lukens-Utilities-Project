@@ -15,17 +15,29 @@ namespace LukensGenericUI
 
         public InventoryItem CurrentItem;
 
+        public InventoryManager ControllingManager;
 
         [SerializeField] private bool m_Primed;
 
         [Header("Cache")]
+        [SerializeField] private Sprite m_DefaultEmptySprite;
         [SerializeField] private CanvasGroup m_AmountPanel;
         [SerializeField] private TextMeshProUGUI m_AmountTxt;
         [SerializeField] private Image m_DisplaySprite;
 
+        private void Awake()
+        {
+            Initialize();
+        }
+
         private void Start()
         {
             UpdateUI();
+        }
+
+        private void Initialize()
+        {
+            ControllingManager = GetComponentInParent<InventoryManager>();
         }
 
         private void UpdateUI()
@@ -47,13 +59,12 @@ namespace LukensGenericUI
 
         public void SetNewItem(InventoryItem item)
         {
-            CurrentItem = item;
+            CurrentItem = item.Clone();
             UpdateUI();
         }
 
         public void SetAmount(int amount)
         {
-            print("Setting item amount: " + amount);
             CurrentItem.Amount = amount;
             UpdateUI();
         }
@@ -75,7 +86,20 @@ namespace LukensGenericUI
                 return;
 
             print(gameObject.name + " CLICKED!");
+            AttemptTransferItem();
             m_Primed = false;
+        }
+
+        public void ClearItem()
+        {
+            CurrentItem.ClearItem();
+            m_DisplaySprite.sprite = m_DefaultEmptySprite;
+            UpdateUI();
+        }
+
+        private void AttemptTransferItem()
+        {
+            ControllingManager.TransferItemToConnectedInventory(this);
         }
 
 
