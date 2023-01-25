@@ -174,7 +174,27 @@ namespace LukensGenericUI
         private void ReorderSlots()
         {
             Slots.Sort(new Slot());
-            Slots.Reverse();
+
+            List<Slot> emptySlots = new();
+            List<Slot> filledSlots = new();
+
+            foreach (Slot slot in Slots)
+            {
+                if (slot.IsEmpty)
+                {
+                    emptySlots.Add(slot);
+                }
+                else
+                {
+                    filledSlots.Add(slot);
+                }
+            }
+
+            Slots.Clear();
+            Slots = filledSlots;
+            Slots.AddRange(emptySlots);
+            
+            //Slots.Reverse();
 
             for (int i = 0; i < Slots.Count; i++)
             {

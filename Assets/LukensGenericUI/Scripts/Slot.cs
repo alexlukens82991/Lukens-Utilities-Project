@@ -30,7 +30,7 @@ namespace LukensGenericUI
 
         private void UpdateUI()
         {
-            if (CurrentItem != null)
+            if (CurrentItem.Amount > 0)
             {
                 LukensUtilities.ToggleCanvasGroup(m_AmountPanel, true);
                 m_AmountTxt.text = CurrentItem.Amount.ToString();
@@ -87,7 +87,7 @@ namespace LukensGenericUI
             }
             else
             {
-                return x.CurrentItem.Amount > y.CurrentItem.Amount ? 1 : -1;
+                return x.CurrentItem.Amount > y.CurrentItem.Amount ? -1 : 1;
             }
         }
     }
