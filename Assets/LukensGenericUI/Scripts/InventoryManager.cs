@@ -225,6 +225,9 @@ namespace LukensGenericUI
 
         public void TransferItemToConnectedInventory(Slot slot)
         {
+            if (ConnectedInventory == null)
+                return;
+
             if (ConnectedInventory.AddItem(slot.CurrentItem))
             {
                 slot.ClearItem();
