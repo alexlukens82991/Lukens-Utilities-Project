@@ -25,6 +25,18 @@ namespace LukensUtils
             m_LukensRuntime.DelayedFire(action, time);
         }
 
+        public static GameObject RaycastFromMouse(float distance = 100)
+        {
+            CheckForMonobehavior();
+            return m_LukensRuntime.WorldSpaceMouseRaycast(distance);
+        }
+
+        public static GameObject RaycastFromPosition(Vector3 position, Vector3 direction, float distance = 100f)
+        {
+            CheckForMonobehavior();
+            return m_LukensRuntime.RaycastFromPosition(position, direction, distance);
+        }
+
         private static void CheckForMonobehavior()
         {
             if (m_LukensRuntime == null)
@@ -33,5 +45,6 @@ namespace LukensUtils
                 m_LukensRuntime = newMono.AddComponent<LukensUtilsRuntime>();
             }
         }
+
     }
 }

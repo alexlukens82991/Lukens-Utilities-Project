@@ -12,6 +12,14 @@ public class TestPilot : MonoBehaviour
         LukensUtilities.DelayedFire(CoolBool, 2);
     }
 
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            print(LukensUtilities.RaycastFromMouse().name);
+        }
+    }
+
     private void CoolBool()
     {
         startFalse = true;
